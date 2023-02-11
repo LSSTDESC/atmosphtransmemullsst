@@ -16,6 +16,9 @@ Please refer to  http://www.libradtran.org for more information.
 After cloning the repo from github,
 the installation may proceed as follow:
 
+         go in the package top directory (where the pyproject.toml file is):
+         cd atmosphtransmemullsst
+
          python -m pip install -e .
          or
          python -m pip install .
