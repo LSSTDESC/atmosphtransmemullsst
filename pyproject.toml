@@ -4,6 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "atmosphtransmemullsst"
+version = "0.0.1"
 
 authors = [
     {name = "Sylvie Dagoret-Campagne", email = "sylvie.dagoret-campagne@ijclab.in2p3.fr"},
@@ -20,7 +21,7 @@ dependencies = [
     "requests",
     'importlib-metadata; python_version<"3.8"',
 ]
-dynamic = ["version"]
+#dynamic = ["version"]
 
 
 #[project.scripts]
