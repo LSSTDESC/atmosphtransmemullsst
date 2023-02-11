@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atmosphtransmemullsst"
+
+authors = [
+    {name = "Sylvie Dagoret-Campagne", email = "sylvie.dagoret-campagne@ijclab.in2p3.fr"},
+]
+description = "Atmospheric transparency emulator for Rubin LSST observatory "
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["atmosphere", "air","astronomy","cosmology"]
+license = {text = "BSD-3-Clause"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "requests",
+    'importlib-metadata; python_version<"3.8"',
+]
+dynamic = ["version"]
+
+
+#[project.scripts]
+#my-script = "my_package.module:function"
+
+# ... other project metadata fields as specified in:
+#     https://packaging.python.org/en/latest/specifications/declaring-project-metadata/
+
+
+#[tool.setuptools.packages]
+#find = {}  # Scan the project directory with the default parameters
+
+
+[tool.setuptools.packages.find]
+# All the following settings are optional:
+#where = ["src"]  # ["."] by default
+#include = ["atmosphtransmemullsst*"]  # ["*"] by default
+exclude = ["atmosphtransmemullsst.notebooks"]  # empty by default
+
+
+
+
