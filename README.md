@@ -27,10 +27,10 @@ the installation may proceed as follow:
 
 ## Usage 
 
-
+            import atmosphtransmemullsst
             from atmosphtransmemullsst.simpleatmospherictransparencyemulator import SimpleAtmEmulator
 
-            emul = SimpleAtmEmulator()
+            emul = SimpleAtmEmulator(os.path.join(atmosphtransmemullsst.__path__[0],'data/simplegrid'))
 
             # definitions of atmospheric parameters
             WL = np.linspace(350,1100, 100)  # wavelengths array
