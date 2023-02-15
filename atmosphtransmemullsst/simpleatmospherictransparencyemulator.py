@@ -12,7 +12,6 @@ from scipy.interpolate import RegularGridInterpolator
 import pickle
 
 
-
 class SimpleAtmEmulator:
     """
     Emulate Atmospheric Transparency above LSST from a data grids
@@ -31,6 +30,7 @@ class SimpleAtmEmulator:
         Interpolation are calculated from the scipy RegularGridInterpolator() function
         
         """
+        print(f"SimpleAtmEmulator:path={path}")
         self.path = path
         self.fn_info_training = "atmospherictransparencygrid_params_training.pickle"
         self.fn_info_test = "atmospherictransparencygrid_params_test.pickle"

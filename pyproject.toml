@@ -54,8 +54,7 @@ exclude = ["atmosphtransmemullsst.notebooks"]  # empty by default
 
 
 [tool.setuptools.package-data]
-"*" = ["*.npy","*.pickle"]
-
+"atmosphtransmemullsst" = ["data/simplegrid/*.npy","data/simplegrid/*.pickle"]
 
 
 [tool.pydocstyle]
