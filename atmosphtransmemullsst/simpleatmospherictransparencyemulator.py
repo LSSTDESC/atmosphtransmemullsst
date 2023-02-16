@@ -217,8 +217,8 @@ class SimpleAtmEmulator:
         - 1D array of atmospheric transmission (save size as wl)
         
         """
-          
-        wl = np.array(wl)
+        if not isinstance(wl, np. ndarray):   
+            wl = np.array(wl)
         NWL=wl.shape[0]
         
         transm = np.ones(NWL)
