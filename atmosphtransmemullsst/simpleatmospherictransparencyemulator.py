@@ -3,13 +3,31 @@
 # - author : Sylvie Dagoret-Campagne
 #- affiliation : IJCLab/IN2P3/CNRS
 #- creation date : 2023/02/07
-#- last update : 2023/02/10
+#- last update : 2023/02/17
 #This emulator is based from datagrid of atmospheric transparencies extracted from libradtran
 
 import os
+import sys
+from pathlib import Path
 import numpy as np
 from scipy.interpolate import RegularGridInterpolator
 import pickle
+
+
+
+
+dir_file_abspath = os.path.dirname(os.path.abspath(__file__))
+print("abspath = ",dir_file_abspath)
+
+dir_file_realpath = os.path.dirname(os.path.realpath(__file__))
+print("realpath = ",dir_file_realpath)
+
+dir_file_sys = Path(sys.path[0])
+print("syspath",dir_file_sys)
+
+dir_file_dirname = os.path.dirname(__file__) 
+print("dirname",dir_file_dirname)
+
 
 
 class SimpleAtmEmulator:
@@ -30,6 +48,25 @@ class SimpleAtmEmulator:
         Interpolation are calculated from the scipy RegularGridInterpolator() function
         
         """
+        
+        dir_file_abspath = os.path.dirname(os.path.abspath(__file__))
+        print("abspath = ",dir_file_abspath)
+        
+        dir_file_realpath = os.path.dirname(os.path.realpath(__file__))
+        print("realpath = ",dir_file_realpath)
+        
+        dir_file_sys = Path(sys.path[0])
+        print("syspath",dir_file_sys)
+        
+        dir_file_dirname = os.path.dirname(__file__) 
+        print("dirname",dir_file_dirname)
+        
+        
+        pathdata = dir_file_abspath + '/../data/simplegrid'
+        print("pathdata = ",pathdata)
+        
+        path = pathdata
+            
         print(f"SimpleAtmEmulator:path={path}")
         self.path = path
         self.fn_info_training = "atmospherictransparencygrid_params_training.pickle"
@@ -144,23 +181,30 @@ class SimpleAtmEmulator:
         return self.WL
             
     def GetRayleighTransparencyArray(self,wl,am):
-        pts = [ np.array([the_wl,am])   for the_wl in wl]
+        pts = [ (the_wl,am) for the_wl in wl ]
+        pts = np.array(pts)
         return self.func_rayleigh_train(pts)
     
     
     def GetO2absTransparencyArray(self,wl,am):
-        pts = [ np.array([the_wl,am])   for the_wl in wl]
+        pts = [ (the_wl,am) for the_wl in wl ]
+        pts = np.array(pts)
         return self.func_O2abs_train(pts)
     
     
     def GetPWVabsTransparencyArray(self,wl,am,pwv):
-        pts = [ np.array([the_wl,am,pwv])   for the_wl in wl]
+        pts = [ (the_wl,am,pwv) for the_wl in wl ]
+        pts = np.array(pts)
         return self.func_PWVabs_train(pts)
     
     
     def GetOZabsTransparencyArray(self,wl,am,oz):
-        pts = [ np.array([the_wl,am,oz])   for the_wl in wl]
+        pts = [ (the_wl,am,oz) for the_wl in wl ]
+        pts = np.array(pts)
         return self.func_OZabs_train(pts)
+    
+    
+    
     
     def GetGriddedTransparencies(self,wl,am,pwv,oz,flagRayleigh=True,flagO2abs=True,flagPWVabs=True,flagOZabs=True):
         """
@@ -185,8 +229,7 @@ class SimpleAtmEmulator:
         
 
         if flagRayleigh:
-            pts = [ np.array([the_wl,am]) for the_wl in wl]
-            transm = self.func_rayleigh_train(pts)
+            transm = self.GetRayleighTransparencyArray(wl,am)
         else:
             transm = np.ones(len(wl))
             
