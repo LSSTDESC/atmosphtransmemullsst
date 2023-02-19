@@ -87,7 +87,7 @@ class SimpleAtmEmulator:
         print(f"SimpleAtmEmulator:path={path}")
         self.path = path
         
-        elf.fn_info_training = file_data_dict["info_training"]
+        self.fn_info_training = file_data_dict["info_training"]
         self.fn_info_test = file_data_dict["info_test"]
         self.fn_rayleigh_training = file_data_dict["data_rayleigh_training"]
         self.fn_rayleigh_test = file_data_dict["data_rayleigh_test"]
