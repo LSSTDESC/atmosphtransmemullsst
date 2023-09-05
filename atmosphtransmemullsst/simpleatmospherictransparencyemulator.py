@@ -77,12 +77,14 @@ class SimpleAtmEmulator:
     - Aerosol transmission for any number of components
     
     """
-    def __init__(self,path='../data/simplegrid'):
+    def __init__(self,path=None):
         """
         Initialize the class for data point files from which the 2D and 3D grids are created.
         Interpolation are calculated from the scipy RegularGridInterpolator() function
         
         """
+        if path is None:
+            path = find_data_path()
             
         print(f"SimpleAtmEmulator:path={path}")
         self.path = path
