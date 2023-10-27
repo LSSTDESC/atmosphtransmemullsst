@@ -16,6 +16,7 @@ classifiers = [
 dynamic = ["version"]
 dependencies = [
     "ipykernel", # Support for Jupyter notebooks
+    "jupyterlab",
 ]
 
 # On a mac, install optional dependencies with `pip install '.[dev]'` (include the single quotes)
@@ -35,6 +36,11 @@ dev = [
     "nbsphinx", # Used to integrate Python notebooks into Sphinx documentation
     "ipython", # Also used in building notebooks into Sphinx
     "matplotlib", # Used in sample notebook intro_notebook.ipynb
+    "seaborn",
+    "numpy", # Used in sample notebook intro_notebook.ipynb
+    "pandas",
+    "astropy",
+    "scipy",
     "numpy", # Used in sample notebook intro_notebook.ipynb
     "asv==0.5.1", # Used to compute performance benchmarks
 ]
